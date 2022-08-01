@@ -1,0 +1,134 @@
+@import '~blip-ds/dist/collection/styles/_colors.scss';
+// Base class
+//
+// Kickstart any navigation component with a set of style resets. Works with
+// `<nav>`s, `<ul>`s or `<ol>`s.
+
+.nav {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.nav-link {
+    // display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .75rem .875rem;
+    color: $color-neutral-medium-cloud;
+    text-decoration: none;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+        border-color 0.15s ease-in-out;
+
+    &:hover,
+    &:focus {
+        color: $color-neutral-medium-elephant;
+        text-decoration: none;
+    }
+
+    // Disabled state lightens text
+    &.disabled {
+        color: $color-neutral-medium-wave;
+        pointer-events: none;
+        cursor: default;
+    }
+    
+    &.active {
+        color: $color-primary-main;
+    }
+}
+
+//
+// Tabs
+//
+
+.nav-tabs {
+    border-bottom: 1px solid $color-neutral-medium-wave;
+
+    .nav-link {
+        margin-bottom: -1px;
+        background: none;
+        border-bottom: 4px solid transparent;
+
+        &:hover,
+        &:focus {
+            border-color: $color-neutral-medium-wave;
+            isolation: isolate;
+        }
+
+        &.disabled {
+            color: $color-neutral-medium-wave;
+            background-color: transparent;
+            border-color: transparent;
+        }
+    }
+
+    .nav-link.active,
+    .nav-item.show .nav-link {
+        color: $color-primary-main;
+        background-color: transparent;
+        border-color: $color-primary-main;
+    }
+}
+
+//
+// Pills
+//
+
+.nav-pills {
+    .nav-link {
+        background: none;
+        border: 0;
+        border-radius: .25rem;
+    }
+
+    .nav-link.active,
+    .show > .nav-link {
+        color: #fff;
+        background-color: $color-primary-main;
+    }
+}
+
+//
+// Justified variants
+//
+
+.nav-fill {
+    > .nav-link,
+    .nav-item {
+        flex: 1 1 auto;
+        text-align: center;
+    }
+}
+
+.nav-justified {
+    > .nav-link,
+    .nav-item {
+        flex-basis: 0;
+        flex-grow: 1;
+        text-align: center;
+    }
+}
+
+.nav-fill,
+.nav-justified {
+    .nav-item .nav-link {
+        width: 100%; // Make sure button will grow
+    }
+}
+
+// Tabbable tabs
+//
+// Hide tabbable panes to start, show them when `.active`
+
+.tab-content {
+    > .tab-pane {
+        display: none;
+    }
+    > .active {
+        display: block;
+    }
+}
